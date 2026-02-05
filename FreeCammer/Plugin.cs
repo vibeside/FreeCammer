@@ -1,7 +1,10 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Logging;
+using HarmonyLib;
 using System;
+using System.Reflection;
+using UnityEngine;
 
 namespace FreeCammer
 {
@@ -15,22 +18,28 @@ namespace FreeCammer
 
         public static ConfigEntry<bool> dragRotation;
 
-        public static ConfigEntry<bool> debugLogs;
+        public static ConfigEntry<bool> doDebugLogs;
 
+        Freecam freecam;
 
         internal static ManualLogSource mls;
         void Awake()
         {
             mls = base.Logger;
             mls.LogInfo("FreeCammer Started");
+
+            if(freecam == null) 
+            freecam = new GameObject("comeracomeracomeracomeleon").AddComponent<Freecam>();
+
+
+            // i dont use harmony, this is just for the network patch.
+            Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly(),modGUID);
         }
 
-
-            
         public static void LogDebug(object msg)
         {
-            if (debugLogs.Value)
-                Plugin.mls.LogDebug(msg);
+            if (doDebugLogs.Value)
+                mls.LogDebug(msg);
         }
     }
 }
