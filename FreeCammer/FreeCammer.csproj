@@ -2,23 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Nullable>enable</Nullable>
+	  <LangVersion>latest</LangVersion>
   </PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.1" PrivateAssets="all" />
 		<PackageReference Include="UnityEngine.Modules" Version="2022.3.9" PrivateAssets="all" />
+		<PackageReference Include="Rune580.Mods.LethalCompany.InputUtils" Version="0.7.10" />
 	</ItemGroup> 	 
 	<ItemGroup>
 		<BuildArtifacts Include="$(TargetPath)" />
+		<None Include="NetworkPrefabPatch1.cs" />
 		<PluginOutput Include="C:\Users\Aaron\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\plugins\Freecam" />
 		<PluginOutput2 Include="C:\Users\Aaron\Desktop\things i have created\mods\FreeCammer" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Reference Include="0Harmony">
 	    <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\core\0Harmony.dll</HintPath>
-	  </Reference>
-	  <Reference Include="0Harmony20">
-	    <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\core\0Harmony20.dll</HintPath>
 	  </Reference>
 	  <Reference Include="BepInEx">
 	    <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\core\BepInEx.dll</HintPath>
@@ -49,6 +48,12 @@
 	  </Reference>
 	  <Reference Include="MonoMod.Utils">
 	    <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\core\MonoMod.Utils.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Unity.Netcode.Components">
+	    <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Unity.Netcode.Components.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Unity.Netcode.Runtime" Publicize="true">
+	    <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Unity.Netcode.Runtime.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
 	<Target Name="Copy and Test" AfterTargets="PostBuildEvent">
