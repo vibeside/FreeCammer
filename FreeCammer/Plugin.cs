@@ -9,12 +9,12 @@ using UnityEngine;
 namespace FreeCammer
 {
     [BepInPlugin(modGUID,modName,modVersion)]
+    [BepInDependency("com.rune580.LethalCompanyInputUtils", BepInDependency.DependencyFlags.SoftDependency)]
     public class Plugin : BaseUnityPlugin
     {
         public const string modGUID = "grug.lethalcompany.freecammer";
         public const string modName = "Free Cammer";
         public const string modVersion = "0.2.0.0";
-
 
         public static ConfigEntry<bool> dragRotation;
 

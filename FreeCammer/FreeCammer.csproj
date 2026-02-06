@@ -4,57 +4,18 @@
     <TargetFramework>netstandard2.1</TargetFramework>
 	  <LangVersion>latest</LangVersion>
   </PropertyGroup>
+
 	<ItemGroup>
+		<PackageReference Include="BepInEx.Core" Version="5.4.21" Private="False" />
 		<PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.1" PrivateAssets="all" />
-		<PackageReference Include="UnityEngine.Modules" Version="2022.3.9" PrivateAssets="all" />
-		<PackageReference Include="Rune580.Mods.LethalCompany.InputUtils" Version="0.7.10" />
-	</ItemGroup> 	 
+		<PackageReference Include="Rune580.Mods.LethalCompany.InputUtils" Version="0.7.12" />
+		<PackageReference Include="LethalCompany.GameLibs.Steam" Version="50.0.0-beta.0-ngd.2" />
+	</ItemGroup>
+	
 	<ItemGroup>
 		<BuildArtifacts Include="$(TargetPath)" />
-		<None Include="NetworkPrefabPatch1.cs" />
 		<PluginOutput Include="C:\Users\Aaron\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\plugins\Freecam" />
 		<PluginOutput2 Include="C:\Users\Aaron\Desktop\things i have created\mods\FreeCammer" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Reference Include="0Harmony">
-	    <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\core\0Harmony.dll</HintPath>
-	  </Reference>
-	  <Reference Include="BepInEx">
-	    <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\core\BepInEx.dll</HintPath>
-	  </Reference>
-	  <Reference Include="BepInEx.Harmony">
-	    <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\core\BepInEx.Harmony.dll</HintPath>
-	  </Reference>
-	  <Reference Include="BepInEx.Preloader">
-	    <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\core\BepInEx.Preloader.dll</HintPath>
-	  </Reference>
-	  <Reference Include="HarmonyXInterop">
-	    <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\core\HarmonyXInterop.dll</HintPath>
-	  </Reference>
-	  <Reference Include="Mono.Cecil">
-	    <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\core\Mono.Cecil.dll</HintPath>
-	  </Reference>
-	  <Reference Include="Mono.Cecil.Mdb">
-	    <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\core\Mono.Cecil.Mdb.dll</HintPath>
-	  </Reference>
-	  <Reference Include="Mono.Cecil.Pdb">
-	    <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\core\Mono.Cecil.Pdb.dll</HintPath>
-	  </Reference>
-	  <Reference Include="Mono.Cecil.Rocks">
-	    <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\core\Mono.Cecil.Rocks.dll</HintPath>
-	  </Reference>
-	  <Reference Include="MonoMod.RuntimeDetour">
-	    <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\core\MonoMod.RuntimeDetour.dll</HintPath>
-	  </Reference>
-	  <Reference Include="MonoMod.Utils">
-	    <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\core\MonoMod.Utils.dll</HintPath>
-	  </Reference>
-	  <Reference Include="Unity.Netcode.Components">
-	    <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Unity.Netcode.Components.dll</HintPath>
-	  </Reference>
-	  <Reference Include="Unity.Netcode.Runtime" Publicize="true">
-	    <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Unity.Netcode.Runtime.dll</HintPath>
-	  </Reference>
 	</ItemGroup>
 	<Target Name="Copy and Test" AfterTargets="PostBuildEvent">
 		<Copy DestinationFolder="@(PluginOutput)" OverwriteReadOnlyFiles="true" SkipUnchangedFiles="false" SourceFiles="@(BuildArtifacts)" />
