@@ -36,7 +36,7 @@ namespace FreeCammer
         }
         void FixedUpdate()
         {
-            
+            // do stuff
         }
     }
 }
